@@ -1,4 +1,6 @@
 /.idea
+.aws
+.terraform
 /*.iml
 .vagrant
 /packer/*.env

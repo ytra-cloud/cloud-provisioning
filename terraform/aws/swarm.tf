@@ -3,7 +3,7 @@ resource "aws_instance" "swarm-manager" {
   ami = "${var.swarm_ami_id}"
   instance_type = "${var.swarm_instance_type}"
   tags {
-    Name = "swarm-manager"
+    Name = "swarm-manager-${count.index}"
   }
   vpc_security_group_ids = [
     "${aws_security_group.docker.id}"
@@ -26,7 +26,7 @@ resource "aws_instance" "swarm-worker" {
   ami = "${var.swarm_ami_id}"
   instance_type = "${var.swarm_instance_type}"
   tags {
-    Name = "swarm-worker"
+    Name = "swarm-worker-${count.index}"
   }
   vpc_security_group_ids = [
     "${aws_security_group.docker.id}"
